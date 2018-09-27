@@ -247,7 +247,7 @@ def zechlog_from_magma_loop(p, i, e, t):
     return map(lambda x: tuple(map(int, x.split(','))), s.split('\n'))
 
 
-def get_db_seq(p, t, num_seq=150, print_matrix=False):
+def get_db_seq(p, t, num_seq=150, print_matrix=False, **kwargs):
     if print_matrix:
         import networkx as nx
         import matplotlib.pyplot as plt
@@ -336,7 +336,7 @@ def get_db_seq(p, t, num_seq=150, print_matrix=False):
     if print_matrix:
         print adj_graph
         node_pos = nx.shell_layout(g)
-        nx.draw(g, node_pos)
+        nx.draw(g, node_pos, **kwargs)
         nx.draw_networkx_labels(g, node_pos)
         plt.show()
 
